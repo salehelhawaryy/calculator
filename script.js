@@ -28,7 +28,7 @@ function operate(a,b,operator){
     if(operator=="multiply")
      return multiply(a,b);
     if(operator=="divide")
-     return divide(a,b);
+     return divide(a,b).toFixed(2);
 }
 
 
@@ -71,30 +71,61 @@ for(let i =0;i<btnArr.length;i++)
         }
     else{
         let AC=document.querySelector(".AC")
-        AC.textContent="C";
+        if(btnArr[i].textContent=="AC")
+            {
+                left=null;
+                right=null;
+                res.textContent="";
+            }
+
+
+        if(btnArr[i].textContent=="+/-")
+        {
+            let newRes= parseInt(res.textContent)*-1;
+            if(right==res.textContent)
+                right=newRes;
+            else left=newRes;
+            res.textContent=newRes;
+        }
+        if(btnArr[i].textContent=="C")
+        {
+            right=null;
+            res.textContent="";
+        }
+        if(btnArr[i].textContent=="%"){
+            let newRes= parseInt(res.textContent)/100;
+            if(right==res.textContent)
+                right=newRes;
+            else left=newRes;
+            res.textContent=newRes;
+        }
         if(btnArr[i].textContent=="×")
             {
                 operator="multiply";
                 btnArr[i].style.backgroundColor="white";
                 btnArr[i].style.color="orange";
+                AC.textContent="C";
             }
         if(btnArr[i].textContent=="+")
             {
                 operator="add";
                 btnArr[i].style.backgroundColor="white";
                 btnArr[i].style.color="orange";
+                AC.textContent="C";
             }
         if(btnArr[i].textContent=="–")
             {
                 operator="subtract";
                 btnArr[i].style.backgroundColor="white";
                 btnArr[i].style.color="orange";
+                AC.textContent="C";
             }
         if(btnArr[i].textContent=="÷")
             {
                 operator="divide";
                 btnArr[i].style.backgroundColor="white";
                 btnArr[i].style.color="orange";
+                AC.textContent="C";
             }
         if(btnArr[i].textContent=="=")
             {
@@ -115,6 +146,7 @@ for(let i =0;i<btnArr.length;i++)
                     work[j].style.backgroundColor="orange";
                     work[j].style.color="white";
                  }
+                 AC.textContent="AC";
             }
         
     }
