@@ -28,7 +28,7 @@ function operate(a,b,operator){
     if(operator=="multiply")
      return multiply(a,b);
     if(operator=="divide")
-     return divide(a,b).toFixed(2);
+     return divide(a,b);
 }
 
 
@@ -101,30 +101,64 @@ for(let i =0;i<btnArr.length;i++)
         }
         if(btnArr[i].textContent=="×")
             {
+                let all=document.querySelectorAll(".yellow");
+                let work=Array.from(all);
+                for(let j=0;j<work.length;j++)
+                 {
+                    work[j].classList.remove("clicked")
+                    work[j].classList.add("test")
+                 }
                 operator="multiply";
-                btnArr[i].style.backgroundColor="white";
-                btnArr[i].style.color="orange";
+                btnArr[i].classList.add("clicked")
                 AC.textContent="C";
             }
         if(btnArr[i].textContent=="+")
             {
+                let all=document.querySelectorAll(".yellow");
+                let work=Array.from(all);
+                for(let j=0;j<work.length;j++)
+                 {
+                    work[j].classList.remove("clicked")
+                    work[j].classList.add("test")
+                 }
                 operator="add";
-                btnArr[i].style.backgroundColor="white";
-                btnArr[i].style.color="orange";
+                btnArr[i].classList.add("clicked")
                 AC.textContent="C";
             }
         if(btnArr[i].textContent=="–")
             {
+                let all=document.querySelectorAll(".yellow");
+                let work=Array.from(all);
+                for(let j=0;j<work.length;j++)
+                 {
+                    work[j].classList.remove("clicked")
+                    work[j].classList.add("test")
+                 }
                 operator="subtract";
-                btnArr[i].style.backgroundColor="white";
-                btnArr[i].style.color="orange";
+                btnArr[i].classList.add("clicked")
+                    //here
+               
                 AC.textContent="C";
             }
         if(btnArr[i].textContent=="÷")
             {
+
+                let all=document.querySelectorAll(".yellow");
+                let work=Array.from(all);
+                for(let j=0;j<work.length;j++)
+                 {
+                    work[j].classList.remove("clicked")
+                    work[j].classList.add("test")
+                 }
+
+
                 operator="divide";
-                btnArr[i].style.backgroundColor="white";
-                btnArr[i].style.color="orange";
+                btnArr[i].classList.add("clicked")
+                
+                // btnArr[i].removeEventListener('mouseenter',addEvent(e));
+                // btnArr[i].removeEventListener('mouseleave',removeEvent(e));
+                
+                
                 AC.textContent="C";
             }
         if(btnArr[i].textContent=="=")
@@ -143,8 +177,14 @@ for(let i =0;i<btnArr.length;i++)
                 let work=Array.from(all);
                 for(let j=0;j<work.length;j++)
                  {
-                    work[j].style.backgroundColor="orange";
-                    work[j].style.color="white";
+                    work[j].classList.remove("clicked")
+                    work[j].classList.add("test")
+                    // work[j].style.backgroundColor="orange";
+                    // work[j].style.color="white";
+                    // work[j].addEventListener('mouseenter',addEvent(e));
+                    // work[j].addEventListener('mouseleave',removeEvent(e));
+                    
+
                  }
                  AC.textContent="AC";
             }
@@ -153,3 +193,12 @@ for(let i =0;i<btnArr.length;i++)
   })
 
 console.log(parseInt("%"));
+
+
+function addEvent(event) {
+    event.style.backgroundColor="#5c5c5c";
+}
+
+function removeEvent(e){
+    e.style.backgroundColor="orange";
+}

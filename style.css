@@ -72,3 +72,13 @@ button {
 
 button:hover{background-color: #5c5c5c}
 button:active {background-color: #b4b4b4}
+
+.test {
+    background-color: orange;
+    color: white;
+}
+
+.clicked {
+    background-color: white;
+    color: orange;
+}
